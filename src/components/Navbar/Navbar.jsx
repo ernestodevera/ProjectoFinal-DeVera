@@ -1,12 +1,14 @@
 import CartWidget from "../CartWidget/CartWidget";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
+        <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
 
             {/*Brand*/} 
-                <a href="#" className="navbar-brand">Music Center</a>
+                <Link to="/">Music Center</Link>
 
 
 
@@ -14,21 +16,17 @@ const Navbar = () => {
             {/*Links*/}
 
                 <ul className="navbar-nav">
+
                     <li className="nav-items">
-                        <a href="#" className="nav-link">Guitarras</a>    
+                        <NavLink to="/category/guitars">Guitarras</NavLink>
                     </li>
                     <li className="nav-items">
-                        <a href="#" className="nav-link">Teclados</a>    
+                        <NavLink to="/category/consoles">Consolas</NavLink>
                     </li>
                     <li className="nav-items">
-                        <a href="#" className="nav-link">Consolas</a>    
+                        <NavLink to="/category/mics">Microfonos</NavLink>
                     </li>
-                    <li className="nav-items">
-                        <a href="#" className="nav-link">Microfonos</a>    
-                    </li>
-                    <li className="nav-items">
-                        <a href="#" className="nav-link">Accesorios</a>    
-                    </li>
+                    
                 </ul>
 
             {/*CartWidget*/}
@@ -36,6 +34,7 @@ const Navbar = () => {
             
             </div>
         </nav>
+        </div>
     );
 }; 
 
