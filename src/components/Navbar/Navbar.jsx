@@ -1,41 +1,46 @@
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
-const Navbar = () => {
+
+const Navbar2 = () => {
     return (
-        <div>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
-            <div className="container-fluid">
+        
+        <Navbar bg="dark" data-bs-theme="dark">
+            <Container>
 
             {/*Brand*/} 
+            <Navbar.Brand >
                 <Link to="/">Music Center</Link>
-
+            </Navbar.Brand>
 
 
 
             {/*Links*/}
 
-                <ul className="navbar-nav">
+                <Nav className="me-auto">
 
-                    <li className="nav-items">
-                        <NavLink to="/category/guitars">Guitarras</NavLink>
-                    </li>
-                    <li className="nav-items">
-                        <NavLink to="/category/consoles">Consolas</NavLink>
-                    </li>
-                    <li className="nav-items">
-                        <NavLink to="/category/mics">Microfonos</NavLink>
-                    </li>
+                    <Nav.Link >
+                        <NavLink to="/category/guitarras">Guitarras</NavLink>
+                    </Nav.Link>
+                    <Nav.Link className="nav-items">
+                        <NavLink to="/category/consolas">Consolas</NavLink>
+                    </Nav.Link>
+                    <Nav.Link className="nav-items">
+                        <NavLink to="/category/microfonos">Microfonos</NavLink>
+                    </Nav.Link>
                     
-                </ul>
+                </Nav>
 
             {/*CartWidget*/}
                 <CartWidget/>
             
-            </div>
-        </nav>
-        </div>
+            </Container>
+        </Navbar>
+        
     );
 }; 
 
-export default Navbar;
+export default Navbar2;

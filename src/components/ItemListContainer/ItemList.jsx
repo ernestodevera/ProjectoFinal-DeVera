@@ -7,19 +7,22 @@ const ItemList = ({ items, isLoading }) => {
   }
 
   return (
-    <div >
+    <div className="container">
+    
+      <div>
       <h1>ItemList</h1>
+      </div>
 
       <ul>
         {items.map((item) => (
-          <li key={item.id}>
+          <div key={item.id}>
             <Link to={`/item/${item.id}`}>
           
               <h3>{item.name}</h3>
               <p>${item.price}</p>
               <p>{item.category}</p>
             </Link>
-          </li>
+          </div>
 
         ))}
         

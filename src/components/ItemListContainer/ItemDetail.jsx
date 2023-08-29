@@ -1,5 +1,6 @@
 import propTypes from "prop-types";
 
+
 const ItemDetail = ({ item, isLoading }) => {
   if (isLoading) {
     return <h2>Loading...</h2>;
@@ -10,7 +11,7 @@ const ItemDetail = ({ item, isLoading }) => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>{item.name}</h1>
       <p>${item.price}</p>
       <p>{item.category}</p>
