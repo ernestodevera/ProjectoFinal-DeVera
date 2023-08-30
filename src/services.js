@@ -1,5 +1,5 @@
 const products = [
-    { id: "1", name: "Guitarra Fender", price: "300", Image: './img/micfender.jpg', category: "Guitarras"},
+    { id: "1", name: "Guitarra Fender", price: "300",  category: "Guitarras", img: "https://i.postimg.cc/RVvNLG3g/micfender.jpg"},
     { id: "2", name: "Guitarra Yamaha", price: "400", category: "Guitarras"},
     { id: "3", name: "Guitarra Gibson", price: "500", category: "Guitarras"},
 
