@@ -17,9 +17,11 @@ const ItemDetail = ({ item, isLoading }) => {
 
     <div>
       <h1>{item.name}</h1>
-      <h2>{item.img}</h2>
+    
       <p>${item.price}</p>
       <p>{item.category}</p>
+      <img src={item.img} ></img>
+
     </div>
   );
 }

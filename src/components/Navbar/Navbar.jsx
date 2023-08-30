@@ -20,16 +20,16 @@ const Navbar2 = () => {
 
             {/*Links*/}
 
-                <Nav className="me-auto">
+                <Nav >
 
                     <Nav.Link >
-                        <NavLink to="/category/guitarras">Guitarras</NavLink>
+                        <NavLink to="/category/Guitarras">Guitarras</NavLink>
                     </Nav.Link>
                     <Nav.Link className="nav-items">
-                        <NavLink to="/category/consolas">Consolas</NavLink>
+                        <NavLink to="/category/Consolas">Consolas</NavLink>
                     </Nav.Link>
                     <Nav.Link className="nav-items">
-                        <NavLink to="/category/microfonos">Microfonos</NavLink>
+                        <NavLink to="/category/Microfonos">Microfonos</NavLink>
                     </Nav.Link>
                     
                 </Nav>
