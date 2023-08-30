@@ -13,7 +13,7 @@ function App() {
     <div>
       
       <Navbar/>
-      <Card/>
+      
 
       <Routes>
       

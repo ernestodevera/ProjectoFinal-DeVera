@@ -1,17 +1,18 @@
 const products = [
-    { id: "1", name: "guitarra fender", price: "300", category: "guitarras"},
-    { id: "2", name: "guitarra yamaha", price: "400", category: "guitarras"},
-    { id: "3", name: "guitarra gibson", price: "500", category: "guitarras"},
+    { id: "1", name: "Guitarra Fender", price: "300", Image: './img/micfender.jpg', category: "Guitarras"},
+    { id: "2", name: "Guitarra Yamaha", price: "400", category: "Guitarras"},
+    { id: "3", name: "Guitarra Gibson", price: "500", category: "Guitarras"},
 
 
-    { id: "4", name: "consola fender", price: "600", category: "consolas"},
-    { id: "5", name: "consola yamaha", price: "700", category: "consolas"},
-    { id: "6", name: "consola gibson", price: "800", category: "consolas"},
+    { id: "4", name: "Consola Fender", price: "600", category: "Consolas"},
+    { id: "5", name: "Consola Yamaha", price: "700", category: "Consolas"},
+    { id: "6", name: "Consola Gibson", price: "800", category: "Consolas"},
 
 
-    { id: "7", name: "microfono fender ", price: "900", category: "microfonos"},
-    { id: "8", name: "microfono yamaha", price: "800", category: "microfonos"},
-    { id: "9", name: "microfono gibson", price: "700", category: "microfonos"},
+    { id: "7", name: "Microfono Fender", price: "900", category: "Microfonos"},
+    { id: "8", name: "Microfono Yamaha", price: "800", category: "Microfonos"},
+    { id: "9", name: "Microfono Gibson", price: "700", category: "Microfonos"},
+    
 ]
 
 export const getProduct = (id) => {
@@ -40,6 +41,6 @@ export const getProducts = (category) => {
 
             resolve(productsFiltered);
             
-        }, 2000);
+        }, 1000);
     });
 };

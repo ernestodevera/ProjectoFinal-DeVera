@@ -1,3 +1,5 @@
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import propTypes from "prop-types";
 
 
@@ -11,8 +13,11 @@ const ItemDetail = ({ item, isLoading }) => {
   }
 
   return (
-    <div className="container">
+    
+
+    <div>
       <h1>{item.name}</h1>
+      <h2>{item.img}</h2>
       <p>${item.price}</p>
       <p>{item.category}</p>
     </div>

@@ -1,16 +1,18 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { propTypes } from 'react-bootstrap/esm/Image';
 
-function Card2() {
+
+function Card2({item}) {
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" >{item.image}</Card.Img>
       <Card.Body>
-        <Card.Title>titulo</Card.Title>
+        <Card.Title>{item.name}</Card.Title>
         <Card.Text>
-          asdalsdkjasldkj
+          Precio: {item.price}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary">Agregar al Carrito</Button>
       </Card.Body>
     </Card>
   );

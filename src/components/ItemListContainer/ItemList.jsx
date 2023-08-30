@@ -1,5 +1,7 @@
 import propTypes from "prop-types";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Card2 from "../Card/Card";
 
 const ItemList = ({ items, isLoading }) => {
   if (isLoading) {
@@ -13,16 +15,10 @@ const ItemList = ({ items, isLoading }) => {
       <h1>ItemList</h1>
       </div>
 
-      <ul>
+      <ul className="row">
         {items.map((item) => (
-          <div key={item.id}>
-            <Link to={`/item/${item.id}`}>
-          
-              <h3>{item.name}</h3>
-              <p>${item.price}</p>
-              <p>{item.category}</p>
-            </Link>
-          </div>
+          <Card2 key={item.id} item={item} />
+        
 
         ))}
         
