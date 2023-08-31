@@ -11,18 +11,19 @@ const ItemList = ({ items, isLoading }) => {
   return (
     <div className="container">
     
-      <div>
-      <h1>ItemList</h1>
-      </div>
+      <br></br>
 
-      <ul className="row">
+      <ul className="row align-items-stretch justify-content-start ">
         {items.map((item) => (
           <Card2 key={item.id} item={item} />
         
+          
 
         ))}
         
       </ul>
+
+      
     </div>
   );
 };

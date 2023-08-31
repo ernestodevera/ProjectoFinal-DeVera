@@ -6,11 +6,11 @@
 	box-sizing: border-box;
 }
  
-body {
+/*body {
 	background: #EEF3F5;
 	font-family: 'Open Sans', sans-serif;
 }
- 
+ */
 
 a {
 	text-decoration: none;
@@ -19,3 +19,6 @@ a {
 a:hover {
 	text-decoration: underline;
 }
+
+body {background-color: rgba(30, 26, 43, 0.3); font-family: 'Open Sans', sans-serif;}
+
