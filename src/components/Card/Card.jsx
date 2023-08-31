@@ -3,10 +3,11 @@ import Card from 'react-bootstrap/Card';
 import { propTypes } from 'react-bootstrap/esm/Image';
 
 
+
 function Card2({item}) {
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" ></Card.Img>
+    <Card style={{ width: '18rem',   }}>
+      <Card.Img variant="top" src={item.img} />
       <Card.Body>
         <Card.Title>{item.name}</Card.Title>
         <Card.Text>
