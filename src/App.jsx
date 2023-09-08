@@ -1,8 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "./components/ItemListContainer/ItemDetailContainer";
+import ItemDetailContainer from "./components/ItemDetail/ItemDetail";
 import Navbar from "./components/Navbar/Navbar" 
-import Card from "./components/Card/Card"
+import ItemCount from "./components/ItemCount/ItemCount";
+
 
 
 
@@ -22,7 +23,7 @@ function App() {
         <Route path="/item/:id" element={<ItemDetailContainer />}  />
       
       </Routes>
-
+      
       
 
 

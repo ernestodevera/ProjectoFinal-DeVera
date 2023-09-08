@@ -13,6 +13,9 @@ function Card2({item}) {
         <Card.Text>
           Precio: {item.price}
         </Card.Text>
+        <Card.Text>
+          Stock: {item.stock}
+        </Card.Text>
         <Button variant="primary">Agregar al Carrito</Button>
       </Card.Body>
     </Card>

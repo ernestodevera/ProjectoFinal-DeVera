@@ -1,7 +1,7 @@
 import propTypes from "prop-types";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Card2 from "../Card/Card";
+import Card2 from "../Item/Item";
 
 const ItemList = ({ items, isLoading }) => {
   if (isLoading) {
@@ -10,19 +10,14 @@ const ItemList = ({ items, isLoading }) => {
 
   return (
     <div className="container">
-    
-      <br></br>
 
-      <ul className="row align-items-stretch justify-content-start ">
+      <br></br>
+      
+      <ul className="row align-items-stretch justify-content-center">
         {items.map((item) => (
           <Card2 key={item.id} item={item} />
-        
-          
-
         ))}
-        
       </ul>
-
       
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProducts } from '../../services';
-import ItemList from './ItemList';
+import ItemList from '../ItemList/ItemList';
 
 const ItemListContainer = () => {
   const [ items, setItems ] = useState([]);
@@ -21,7 +21,7 @@ const ItemListContainer = () => {
       setIsLoading(false);
     });
   }, [categoryId]);
-   
+  
   
   return <ItemList items={items} isLoading={isLoading}/>;
 };

@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import propTypes from "prop-types";
+import ItemCount from '../ItemCount/ItemCount';
 
 
 const ItemDetail = ({ item, isLoading }) => {
@@ -17,11 +18,13 @@ const ItemDetail = ({ item, isLoading }) => {
 
     <div>
       <h1>{item.name}</h1>
-    
       <p>${item.price}</p>
       <p>{item.category}</p>
+      <p>{item.stock}</p>
+      
       <img src={item.img} ></img>
 
+      <ItemCount initial={1} stock={stock} onAdd={(quantity) => console.log("cantidad agregada")}></ItemCount>
     </div>
   );
 }
