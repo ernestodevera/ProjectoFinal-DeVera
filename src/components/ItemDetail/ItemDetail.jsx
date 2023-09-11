@@ -24,7 +24,7 @@ const ItemDetail = ({ item, isLoading }) => {
       
       <img src={item.img} ></img>
 
-      <ItemCount initial={1} stock={stock} onAdd={(quantity) => console.log("cantidad agregada")}></ItemCount>
+      <ItemCount initial={1} stock={item.stock} onAdd={(quantity) => console.log("cantidad agregada")}></ItemCount>
     </div>
   );
 }

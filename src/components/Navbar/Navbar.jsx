@@ -9,7 +9,7 @@ const Navbar2 = () => {
     return (
         
         <Navbar bg="dark" data-bs-theme="dark">
-            <Container>
+            <Container >
 
             {/*Brand*/} 
             <Navbar.Brand >
@@ -20,7 +20,7 @@ const Navbar2 = () => {
 
             {/*Links*/}
 
-                <Nav >
+                <Nav>
 
                     <Nav.Link >
                         <NavLink to="/category/Guitarras">Guitarras</NavLink>

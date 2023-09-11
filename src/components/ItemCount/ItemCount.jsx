@@ -1,5 +1,8 @@
 /*import `./ItemCount.css` */
 import { useState } from "react"
+import Button from 'react-bootstrap/Button';
+import { propTypes } from "react-bootstrap/esm/Image";
+
 
 
 const ItemCount = ({stock, initial, onAdd}) => {
@@ -20,15 +23,15 @@ const ItemCount = ({stock, initial, onAdd}) => {
     return (
         <div className="Counter">
             <div className="Controls">
-                <button className="Button" onClick={decrement}>-</button>
+                <Button className="Button" onClick={decrement}>-</Button>
                 <h4 className="Number">{quantity}</h4>
-                <button className="Button" onClick={incremet}>+</button>
+                <Button className="Button" onClick={incremet}>+</Button>
             </div>
 
             <div>
-                <button className="Button" onClick={() => onAdd(quantity)} disabled={!stock}>
+                <Button className="Button" onClick={() => onAdd(quantity)} disabled={!stock}>
                     Agregar al Carrito
-                </button>
+                </Button>
             </div>
 
 

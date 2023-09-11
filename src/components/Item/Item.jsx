@@ -16,7 +16,7 @@ function Card2({item}) {
         <Card.Text>
           Stock: {item.stock}
         </Card.Text>
-        <Button variant="primary">Agregar al Carrito</Button>
+        <Button variant="primary">Ver Detalle</Button>
       </Card.Body>
     </Card>
   );
