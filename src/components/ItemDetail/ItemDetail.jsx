@@ -1,12 +1,13 @@
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import propTypes from "prop-types";
 import ItemCount from '../ItemCount/ItemCount';
+import './ItemDetail.css'
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 
 const ItemDetail = ({ item, isLoading }) => {
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return <h2 className="row justify-content-center">Loading...</h2>;
   }
 
   if (!item) {
@@ -14,18 +15,22 @@ const ItemDetail = ({ item, isLoading }) => {
   }
 
   return (
-    
 
-    <div>
-      <h1>{item.name}</h1>
-      <p>${item.price}</p>
-      <p>{item.category}</p>
-      <p>{item.stock}</p>
-      
-      <img src={item.img} ></img>
+    <Card style={{ width: '18rem',   }}>
+      <Card.Img variant="top" src={item.img}/>
+        <Card.Body>
+          <Card.Title>{item.name}</Card.Title>
+          <Card.Text>Definicion del item extendido blalbalblablablablabalbabalbalbalbablbasbasbasbasb</Card.Text>
+        </Card.Body>
+        <ListGroup className="list-group-flush">
+          <ListGroupItem>Precio: {item.price}</ListGroupItem>
+          <ListGroupItem>Stock: {item.stock}</ListGroupItem>
+        </ListGroup>
 
+    <div className='container'> 
       <ItemCount initial={1} stock={item.stock} onAdd={(quantity) => console.log("cantidad agregada")}></ItemCount>
-    </div>
+    </div> 
+    </Card> 
   );
 }
 

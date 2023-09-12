@@ -19,7 +19,7 @@ export const getProduct = (id) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
 
-            const product = products.find(p.id === id)
+            const product = products.find((p)=>p.id === id)
 
             if (product) {
                 resolve(product)

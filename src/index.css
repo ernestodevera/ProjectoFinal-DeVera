@@ -16,9 +16,6 @@ a {
 	text-decoration: none;
 }
  
-a:hover {
-	text-decoration: underline;
-}
 
 body {background-color: rgba(30, 26, 43, 0.3); font-family: 'Open Sans', sans-serif;}
 

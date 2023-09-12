@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { propTypes } from 'react-bootstrap/esm/Image';
+import { Link } from 'react-router-dom';
 
 
 
@@ -16,7 +17,9 @@ function Card2({item}) {
         <Card.Text>
           Stock: {item.stock}
         </Card.Text>
-        <Button variant="primary">Ver Detalle</Button>
+        
+        <Button variant="primary" as={Link} to={`/item/${item.id}`}>Ver Detalle</Button>
+        
       </Card.Body>
     </Card>
   );

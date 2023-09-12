@@ -21,10 +21,13 @@ const ItemCount = ({stock, initial, onAdd}) => {
     }
 
     return (
+
+        
+
         <div className="Counter">
-            <div className="Controls">
+            <div className="Controls d-flex ">
                 <Button className="Button" onClick={decrement}>-</Button>
-                <h4 className="Number">{quantity}</h4>
+                <h1 className="Number">{quantity}</h1>
                 <Button className="Button" onClick={incremet}>+</Button>
             </div>
 

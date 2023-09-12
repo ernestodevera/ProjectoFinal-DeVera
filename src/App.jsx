@@ -1,12 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetail/ItemDetail";
+import ItemDetailContainer from "./components/ItemDetailConteiner/ItemDetailContainer";
 import Navbar from "./components/Navbar/Navbar" 
-import ItemCount from "./components/ItemCount/ItemCount";
-
-
-
-
 
 
 function App() {
@@ -24,7 +19,7 @@ function App() {
       
       </Routes>
       
-      <ItemCount/>
+      
       
 
 

@@ -9,7 +9,7 @@ const Navbar2 = () => {
     return (
         
         <Navbar bg="dark" data-bs-theme="dark">
-            <Container >
+            <Container>
 
             {/*Brand*/} 
             <Navbar.Brand >
