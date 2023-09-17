@@ -1,6 +1,8 @@
-const products = [
-    { id: "2", stock:"8", name: "Guitarra Yamaha", price: "400", category: "Guitarras", img: "https://i.postimg.cc/HsWP4pLK/Whats-App-Image-2023-08-31-at-11-27-13.jpg"},
+import { doc, getDoc,  getDocs, getFirestore, query, where, collection, QuerySnapshot,  } from "firebase/firestore"
+
+/*{const products = [
     { id: "1", stock:"6", name: "Guitarra Fender", price: "300",  category: "Guitarras", img: "https://i.postimg.cc/ZRhw9mgw/Whats-App-Image-2023-08-31-at-11-23-32.jpg"},
+    { id: "2", stock:"8", name: "Guitarra Yamaha", price: "400", category: "Guitarras", img: "https://i.postimg.cc/HsWP4pLK/Whats-App-Image-2023-08-31-at-11-27-13.jpg"},
     { id: "3", stock:"4", name: "Guitarra Gibson", price: "500", category: "Guitarras", img: "https://i.postimg.cc/D04Q5YtS/guit-3.jpg"},
 
 
@@ -13,34 +15,52 @@ const products = [
     { id: "8", stock:"7", name: "Microfono Yamaha", price: "800", category: "Microfonos", img: "https://i.postimg.cc/qBx53tpy/Whats-App-Image-2023-08-31-at-11-36-03.jpg"},
     { id: "9", stock:"5", name: "Microfono Gibson", price: "700", category: "Microfonos", img: "https://i.postimg.cc/dVLHp4rj/Whats-App-Image-2023-08-31-at-11-35-04.jpg"},
     
-]
+]*/
 
 export const getProduct = (id) => {
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
+        const db = getFirestore();
 
-            const product = products.find((p)=>p.id === id)
+        const itemDoc = doc(db, "items", id);
 
-            if (product) {
-                resolve(product)
-            } else {
-                reject("No existe el producto")
-            }
-            
-        }, 2000);
-    })
-}
-
-export const getProducts = (category) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            
-            const productsFiltered = category 
-            ? products.filter(product => product.category === category)
-            : products;  
-
-            resolve(productsFiltered);
-            
-        }, 1000);
+        getDoc(itemDoc) 
+            .then((doc) => {
+                if (doc.exists()) {
+                    resolve({ id: doc.id, ...doc.data() });
+                }   else {
+                    resolve(null);
+                }
+            })
+            .catch((error) => {
+                reject(error);
+            });
     });
 };
+
+export const getProducts = (categoryId) => {
+    return new Promise((resolve, reject) => {
+        const db = getFirestore();
+
+        const itemCollection = collection(db, "items");
+
+        let q
+
+        if (categoryId) {
+            q = query(itemCollection, where("categoryId", "===", categoryId ));
+        } else {
+            q = query(itemCollection);
+        } 
+
+        getDocs(q)
+            .then((querySnapshot) => {
+                const products = querySnapshot.docs.map((doc) => {
+                    return { id: doc.id, ...doc.data()};
+                });
+                resolve (products);
+            })
+            .catch((error) => {
+                reject(error);
+            });
+        
+    });
+};    

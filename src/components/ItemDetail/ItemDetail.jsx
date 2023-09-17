@@ -17,14 +17,15 @@ const ItemDetail = ({ item, isLoading }) => {
   return (
 
     <Card style={{ width: '18rem',   }}>
-      <Card.Img variant="top" src={item.img}/>
+      <Card.Img variant="top" src={item.imageid}/>
         <Card.Body>
-          <Card.Title>{item.name}</Card.Title>
-          <Card.Text>Definicion del item extendido blalbalblablablablabalbabalbalbalbablbasbasbasbasb</Card.Text>
+          <Card.Title>{item.title}</Card.Title>
+          <Card.Text>Descripcion: {item.description}</Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
           <ListGroupItem>Precio: {item.price}</ListGroupItem>
           <ListGroupItem>Stock: {item.stock}</ListGroupItem>
+          <ListGroupItem>Category: {item.categoryId}</ListGroupItem>
         </ListGroup>
 
     <div className='container'> 
