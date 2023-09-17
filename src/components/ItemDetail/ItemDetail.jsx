@@ -5,7 +5,7 @@ import './ItemDetail.css'
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 
-const ItemDetail = ({ item, isLoading }) => {
+const ItemDetail = ({ item, isLoading, addItem }) => {
   if (isLoading) {
     return <h2 className="row justify-content-center">Loading...</h2>;
   }
@@ -38,6 +38,7 @@ const ItemDetail = ({ item, isLoading }) => {
 ItemDetail.propTypes = {
   item: propTypes.object,
   isLoading: propTypes.bool,
+  addItem: propTypes.func,
 };
 
 export default ItemDetail;

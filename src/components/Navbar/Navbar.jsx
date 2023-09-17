@@ -23,13 +23,13 @@ const Navbar2 = () => {
                 <Nav>
 
                     <Nav.Link >
-                        <NavLink to="/category/Guitarras">Guitarras</NavLink>
+                        <NavLink to="/category/guitarras">Guitarras</NavLink>
                     </Nav.Link>
                     <Nav.Link className="nav-items">
-                        <NavLink to="/category/Consolas">Consolas</NavLink>
+                        <NavLink to="/category/consolas">Consolas</NavLink>
                     </Nav.Link>
                     <Nav.Link className="nav-items">
-                        <NavLink to="/category/Microfonos">Microfonos</NavLink>
+                        <NavLink to="/category/microfonos">Microfonos</NavLink>
                     </Nav.Link>
                     
                 </Nav>
