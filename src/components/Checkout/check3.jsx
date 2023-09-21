@@ -32,25 +32,25 @@ const Checkout = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div>
       <h1>Checkout</h1>
 
       <h2>Resumen de la compra</h2>
 
-      {orderId && <p className="alert alert-success">El id de la orden es: {orderId}</p>}
+      {orderId && <p>El id de la orden es: {orderId}</p>}
 
       {!orderId && (
-        <div className="row">
-          <div className="col-md-6">
+        <>
+          <div>
             <h4>Formulario de contacto</h4>
             {/* TODO: Formulario */}
           </div>
 
-          <div className="col-md-6">
+          <div>
             <h4>Productos</h4>
-            <ul className="list-group">
+            <ul>
               {cart.map((item) => (
-                <li key={item.id} className="list-group-item">
+                <li key={item.id}>
                   <p>{item.title}</p>
                   <p>Cantidad: {item.quantity}</p>
                   <p>Precio por unidad: ${item.price}</p>
@@ -58,14 +58,14 @@ const Checkout = () => {
                 </li>
               ))}
             </ul>
-            <p className="mt-3">Total de la compra: ${total}</p>
           </div>
 
-          <div className="col-md-12">
-            <button className="btn btn-primary mt-3" onClick={handleCheckout}>Finalizar compra</button>
-            {isLoading && <p>Procesando compra...</p>}
-          </div>
-        </div>
+          <p>Total de la compra: {total}</p>
+
+          <button onClick={handleCheckout}>Finalizar compra</button>
+
+          {isLoading && <p>Procesando compra...</p>}
+        </>
       )}
     </div>
   );

@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, ListGroup, ListGroupItem, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import ItemCount from '../ItemCount/ItemCount';
-import './ItemDetail.css';
 import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ item, isLoading, addItem }) => {
@@ -16,11 +15,11 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
 
   return (
     <Card style={{ width: '100%' }}>
-      <div>
-        <Col md={4}>
+      <div className="row">
+        <div className="col-md-4">
           <Card.Img variant="top" src={item.imageid} />
-        </Col>
-        <Col md={8}>
+        </div>
+        <div className="col-md-8">
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
             <Card.Text>Description: {item.description}</Card.Text>
@@ -30,24 +29,24 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
             <ListGroupItem>Stock: {item.stock}</ListGroupItem>
             <ListGroupItem>Category: {item.categoryId}</ListGroupItem>
           </ListGroup>
-        </Col>
+          <div className="container mt-3">
+            <Row>
+              <Col md={8} className="d-flex align-items-center">
+                <ItemCount
+                  initial={1}
+                  stock={item.stock}
+                  onAdd={(quantity) => addItem(item, quantity)}
+                ></ItemCount>
+              </Col>
+              <Col md={4} className="d-flex justify-content-end">
+                <Link to="/" className="btn btn-danger">
+                  Back
+                </Link>
+              </Col>
+            </Row>
+          </div>
+        </div>
       </div>
-      <Row>
-        <Col md={8} className="ml-auto">
-          <div className="container">
-            <ItemCount
-              initial={1}
-              stock={item.stock}
-              onAdd={(quantity) => addItem(item, quantity)}
-            ></ItemCount>
-          </div>
-          <div className="container">
-            <Link to="/" className="btn btn-danger">
-              Back
-            </Link>
-          </div>
-        </Col>
-      </Row>
     </Card>
   );
 };
