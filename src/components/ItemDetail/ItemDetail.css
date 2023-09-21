@@ -119,11 +119,11 @@ input:focus::-webkit-input-placeholder
     background-color: #000;
     border-color: #000;
     color: white;
-    width: 100%;
+    
     font-size: 0.7rem;
-    margin-top: 4vh;
-    padding: 1vh;
-    border-radius: 0;
+    margin-top: 1%;
+   
+    border-radius: 5;
 }
 .btn:focus{
     box-shadow: none;
@@ -143,10 +143,4 @@ a{
 a:hover{
     color: rgb(136, 121, 121);
     text-decoration: none;
-}
- #code{
-    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
-    background-repeat: no-repeat;
-    background-position-x: 95%;
-    background-position-y: center;
 }

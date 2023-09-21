@@ -1,4 +1,14 @@
-import { doc, getDoc,  getDocs, getFirestore, query, where, collection, QuerySnapshot,  } from "firebase/firestore"
+import {
+    doc,
+    getDoc,
+    collection,
+    getDocs,
+    addDoc,
+    query,
+    where,
+    getFirestore,
+    QuerySnapshot,
+}   from "firebase/firestore";
 
 /*{const products = [
     { id: "1", stock:"6", name: "Guitarra Fender", price: "300",  category: "Guitarras", img: "https://i.postimg.cc/ZRhw9mgw/Whats-App-Image-2023-08-31-at-11-23-32.jpg"},
@@ -64,3 +74,11 @@ export const getProducts = (categoryId) => {
         
     });
 };    
+
+export const createOrder = (orden) => {
+    const db = getFirestore();
+
+    const ordersCollection = collection(db, "orders");
+
+    return addDoc(ordersCollection, orden);
+};

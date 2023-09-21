@@ -1,6 +1,4 @@
 import propTypes from "prop-types";
-import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import Card2 from "../Item/Item";
 
 const ItemList = ({ items, isLoading }) => {
@@ -11,7 +9,7 @@ const ItemList = ({ items, isLoading }) => {
   return (
     <div className="container">
             
-      <ul className="row align-items-stretch justify-content-center">
+      <ul className="align-items-stretch justify-content-center">
         {items.map((item) => (
           <Card2 key={item.id} item={item} />
         ))}
