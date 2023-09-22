@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; 
 import CartContext from '../../context/CartContext';
-import { Link } from 'react-router-dom';
-import Checkout from '../Checkout/Checkout'; // Importa el componente Checkout
-import styles from './Cart.module.css'; // Importa los estilos CSS
+import Checkout from '../Checkout/Checkout';
+import styles from './Cart.module.css';
 
 const Cart = () => {
   const { cart, removeItem, clear } = useContext(CartContext);
   const [showForm, setShowForm] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const navigate = useNavigate(); 
 
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.quantity * item.price, 0);
@@ -19,15 +20,14 @@ const Cart = () => {
 
   const handleCompletePurchase = () => {
     setShowForm(true);
+    navigate('/checkout');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Simulación de éxito
     setTimeout(() => {
       setShowSuccessMessage(true);
-    }, 1000); // Muestra el mensaje después de 1 segundo (puedes ajustar el tiempo)
+    }, 1000); 
   };
 
   return (
@@ -46,30 +46,43 @@ const Cart = () => {
                       </div>
                       <hr className="my-4"/>
 
-                      {cart.map((item) => (
-                        <div key={item.id} className={`row mb-4 d-flex justify-content-between align-items-center ${styles.cartItem}`}>
-                          <div className="col-md-2 col-lg-2 col-xl-2">
-                            <img src={item.imageid} className="img-fluid rounded-3" alt={item.title} />
-                          </div>
-                          <div className="col-md-3 col-lg-3 col-xl-3">
-                            <h6 className="text-muted">{item.categoryId}</h6>
-                            <h6 className="text-black mb-0">{item.title}</h6>
-                          </div>
-                          <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                            
-                          </div>
-                          <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                            <h6 className="mb-0">$ {item.quantity * item.price}</h6>
+                      {cart.length === 0 ? (
+                        <div className="text-center">
+                          <p>There are no items in the cart</p>
+                          <Link to="/" className="btn btn-primary">
+                          Return to the store
+                          </Link>
+                        </div>
+                      ) : (
+                        <div>
+                          {cart.map((item) => (
+                            <div key={item.id} className={`row mb-4 d-flex justify-content-between align-items-center ${styles.cartItem}`}>
+                              <div className="col-md-2 col-lg-2 col-xl-2">
+                                <img src={item.imageid} className="img-fluid rounded-3" alt={item.title} />
+                              </div>
+                              <div className="col-md-3 col-lg-3 col-xl-3">
+                                <h6 className="text-muted">{item.categoryId}</h6>
+                                <h6 className="text-black mb-0">{item.title}</h6>
+                              </div>
+                              <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                <button className="btn btn-link px-2" onClick={() => handleRemoveItem(item.id)}>
+                                  <i className="fas fa-times"></i>
+                                </button>
+                              </div>
+                              <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                <h6 className="mb-0">{item.quantity} unit{item.quantity !== 1 ? 's' : ''}</h6>
+                                <h6 className="mb-0">$ {item.quantity * item.price}</h6>
+                              </div>
+                            </div>
+                          ))}
+
+                          <hr className="my-4"/>
+
+                          <div className="pt-5">
+                            <h6 className="mb-0"><Link to="/" className="text-body"><i className="fas fa-long-arrow-alt-left me-2"></i>Back to shop</Link></h6>
                           </div>
                         </div>
-                      ))}
-
-                      <hr className="my-4"/>
-
-                      <div className="pt-5">
-                        <h6 className="mb-0"><Link to="/" className="text-body"><i
-                          className="fas fa-long-arrow-alt-left me-2"></i>Back to shop</Link></h6>
-                      </div>
+                      )}
                     </div>
                   </div>
                   <div className={`col-lg-4 bg-grey ${styles.summary}`}>
@@ -93,15 +106,17 @@ const Cart = () => {
                         <div>
                           <button
                             type="button"
-                            className={`btn btn-dark btn-block btn-lg ${styles.completePurchase}`}
-                            data-mdb-ripple-color="dark"
+                            className="btn btn-danger"
+                            
                             onClick={handleCompletePurchase}
                           >
                             Complete Purchase
                           </button>
+                          
                           <button
                             type="button"
-                            className="btn btn-danger btn-block btn-lg"
+                            className="btn btn-danger d-flex justify-content-end"
+                            
                             onClick={clear}
                           >
                             Empty Cart
@@ -119,13 +134,12 @@ const Cart = () => {
 
       {showForm && !showSuccessMessage && (
         <div className="container">
-          <Checkout /> {/* Muestra el componente Checkout */}
         </div>
       )}
 
       {showSuccessMessage && (
         <div className="container">
-          <h2>Su compra fue exitosa</h2>
+          <h2>Your purchase was successful</h2>
         </div>
       )}
     </section>

@@ -8,19 +8,12 @@ import App from './App.jsx'
 import './index.css'
 
 const firebaseConfig = {
-
-  apiKey: "AIzaSyC-HXsc_9BFmOJTEibGm8fAHtiA1EHzsOc",
-
-  authDomain: "music-center-e7614.firebaseapp.com",
-
-  projectId: "music-center-e7614",
-
-  storageBucket: "music-center-e7614.appspot.com",
-
-  messagingSenderId: "661385273663",
-
-  appId: "1:661385273663:web:470030dd711b757b57b38a"
-
+  apiKey: import.meta.env.VITE_FIRESTORE_API_KEY,
+  authDomain: import.meta.env.VITE_FIRESTORE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIRESTORE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIRESTORE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIRESTORE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIRESTORE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

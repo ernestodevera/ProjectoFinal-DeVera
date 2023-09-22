@@ -3,6 +3,7 @@ import CartContext from "../../context/CartContext";
 import { serverTimestamp } from "firebase/firestore";
 import { getCartTotal, mapCartToOrderItems } from "../../utils";
 import { createOrder } from "../../services";
+import styles from './Checkout.module.css';
 
 const Checkout = () => {
   const [orderId, setOrderId] = useState(null);
@@ -32,43 +33,69 @@ const Checkout = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h1>Checkout</h1>
-
-      <h2>Resumen de la compra</h2>
-
-      {orderId && <p className="alert alert-success">El id de la orden es: {orderId}</p>}
-
+    <div className="container-sm">
+      <h1>Order Summary</h1>
+  
+      {orderId && <p>Order ID: {orderId}</p>}
+  
       {!orderId && (
         <div className="row">
-          <div className="col-md-6">
-            <h4>Formulario de contacto</h4>
-            {/* TODO: Formulario */}
+          <div className="mb-3">
+            <h3>Contact Form</h3>
+            <form>
+              <div className="mb-3">
+                <label htmlFor="exampleInputPassword1" className="form-label">Name</label>
+                <input type="password" className="form-control" id="exampleInputPassword1" />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              
+            </form>
           </div>
+  
+          <div>
+            <h4>Products</h4>
+              <div>
+                {cart.map((item) => (
+                  <div key={item.id}>
+                    <div className="card mb-3" style={{ maxWidth: "500px" }}>
+                      <div className="row g-0">
+                        <div className="col-md-4">
+                          <img src={item.imageid} className="img-fluid rounded-start" alt={item.title} />
+                        </div>
+                        <div className="col-md-8">
+                          <div className="card-body">
+                            <h5 className="card-title text-end">{item.title}</h5>
+                            <p className="card-text text-end">Quantity: {item.quantity}</p>
+                            <p className="card-text text-end">Price per unit: ${item.price}</p>
+                            <p className="card-text text-end">Subtotal: ${item.price * item.quantity}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-          <div className="col-md-6">
-            <h4>Productos</h4>
-            <ul className="list-group">
-              {cart.map((item) => (
-                <li key={item.id} className="list-group-item">
-                  <p>{item.title}</p>
-                  <p>Cantidad: {item.quantity}</p>
-                  <p>Precio por unidad: ${item.price}</p>
-                  <p>Subtotal: ${item.price * item.quantity}</p>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-3">Total de la compra: ${total}</p>
           </div>
-
-          <div className="col-md-12">
-            <button className="btn btn-primary mt-3" onClick={handleCheckout}>Finalizar compra</button>
-            {isLoading && <p>Procesando compra...</p>}
-          </div>
+  
+          <h2>Total purchase amount: ${total}</h2>
+  
+          <button 
+          type="button"
+          className={`btn btn-dark btn-block btn-lg ${styles.completePurchase}`}
+          data-mdb-ripple-color="dark"
+          onClick={handleCheckout}>Complete Purchase</button>
+  
+          {isLoading && <p>Processing order...</p>}
         </div>
       )}
     </div>
   );
+  
 };
 
 export default Checkout;

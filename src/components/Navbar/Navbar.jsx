@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
+
 const Navbar2 = () => {
   return (
     <Navbar bg="dark" data-bs-theme="dark">
@@ -17,13 +18,13 @@ const Navbar2 = () => {
         {/* Links */}
         <Nav>
           <Nav.Link>
-            <NavLink to="/category/guitarras">Guitarras</NavLink>
+            <NavLink to="/category/guitarras">Guitars</NavLink>
           </Nav.Link>
           <Nav.Link className="nav-items">
-            <NavLink to="/category/consolas">Consolas</NavLink>
+            <NavLink to="/category/consolas">Mixers</NavLink>
           </Nav.Link>
           <Nav.Link className="nav-items">
-            <NavLink to="/category/microfonos">Microfonos</NavLink>
+            <NavLink to="/category/microfonos">Microphones</NavLink>
           </Nav.Link>
         </Nav>
 

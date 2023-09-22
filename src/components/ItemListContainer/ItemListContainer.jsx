@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProducts } from '../../services';
-import ItemList from '../ItemList/ItemList';
-import Item from '../Item/Item'; // Asegúrate de importar Item
+import Item from '../Item/Item'; 
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -26,7 +25,6 @@ const ItemListContainer = () => {
         ) : (
           items.map((item) => (
             <div key={item.id} className="col-md-4">
-              {/* Aquí puedes renderizar cada elemento en un div con col-md-4 */}
               <Item item={item} />
             </div>
           ))

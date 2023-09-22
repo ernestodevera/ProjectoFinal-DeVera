@@ -22,7 +22,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
       <div className="d-flex align-items-center">
         <Button
           variant="danger"
-          size="sm" // Cambia a "lg" o ajusta según lo necesites
+          size="sm" 
           onClick={decrement}
           className="ml-2"
         >
@@ -31,7 +31,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         <h3 className="m-0">{quantity}</h3>
         <Button
           variant="danger"
-          size="sm" // Cambia a "lg" o ajusta según lo necesites
+          size="sm" 
           onClick={increment}
           className="ml-2"
 
@@ -46,7 +46,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           onClick={() => onAdd(quantity)}
           disabled={!stock || quantity === 0}
         >
-          Agregar al Carrito
+        Add to cart
         </Button>
       </div>
     </div>
