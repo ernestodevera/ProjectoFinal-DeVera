@@ -44,8 +44,9 @@ const Checkout = () => {
             <h3>Contact Form</h3>
             <form>
               <div className="mb-3">
-                <label htmlFor="exampleInputPassword1" className="form-label">Name</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" />
+                <label htmlFor="exampleInputEmail1" className="form-label">Name</label>
+                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                
               </div>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
@@ -86,7 +87,7 @@ const Checkout = () => {
   
           <button 
           type="button"
-          className={`btn btn-dark btn-block btn-lg ${styles.completePurchase}`}
+          className="btn btn-danger"
           data-mdb-ripple-color="dark"
           onClick={handleCheckout}>Complete Purchase</button>
   

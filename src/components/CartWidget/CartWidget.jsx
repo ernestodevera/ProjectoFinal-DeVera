@@ -14,17 +14,19 @@ const CartWidget = () => {
     navigate("/cart");
   };
 
+  
+
   return (
     <div>
       <button
-        className="btn btn-outline-primary position-relative"
+        className="btn btn-outline-danger position-relative"
         onClick={handleCartClick} 
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
-          fill="currentColor"
+          fill="red"
           className="bi bi-cart"
           viewBox="0 0 16 16"
         >

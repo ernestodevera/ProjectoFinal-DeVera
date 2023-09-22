@@ -14,40 +14,42 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
   }
 
   return (
-    <Card style={{ width: '100%' }}>
-      <div className="row">
-        <div className="col-md-4">
-          <Card.Img variant="top" src={item.imageid} />
-        </div>
-        <div className="col-md-8">
-          <Card.Body>
-            <Card.Title>{item.title}</Card.Title>
-            <Card.Text>Description: {item.description}</Card.Text>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-            <ListGroupItem>Price: {item.price}</ListGroupItem>
-            <ListGroupItem>Stock: {item.stock}</ListGroupItem>
-            <ListGroupItem>Category: {item.categoryId}</ListGroupItem>
-          </ListGroup>
-          <div className="container mt-3">
-            <Row>
-              <Col md={8} className="d-flex align-items-center">
-                <ItemCount
-                  initial={1}
-                  stock={item.stock}
-                  onAdd={(quantity) => addItem(item, quantity)}
-                ></ItemCount>
-              </Col>
-              <Col md={4} className="d-flex justify-content-end">
-                <Link to="/" className="btn btn-danger">
-                  Back
-                </Link>
-              </Col>
-            </Row>
+    <div className='container d-flex align-items-center'>
+      <Card style={{ width: '100%',}}>
+        <div className="row">
+          <div className="col-md-4">
+            <Card.Img variant="top" src={item.imageid} />
+          </div>
+          <div className="col-md-8">
+            <Card.Body>
+              <Card.Title>{item.title}</Card.Title>
+              <Card.Text>Description: {item.description}</Card.Text>
+            </Card.Body>
+            <ListGroup className="list-group-flush">
+              <ListGroupItem>Price: {item.price}</ListGroupItem>
+              <ListGroupItem>Stock: {item.stock}</ListGroupItem>
+              <ListGroupItem>Category: {item.categoryId}</ListGroupItem>
+            </ListGroup>
+            <div className="container mt-3">
+              <Row>
+                <Col md={8} className="d-flex align-items-center">
+                  <ItemCount
+                    initial={1}
+                    stock={item.stock}
+                    onAdd={(quantity) => addItem(item, quantity)}
+                  ></ItemCount>
+                </Col>
+                <Col md={4} className="d-flex justify-content-end">
+                  <Link to="/" className="btn btn-danger">
+                    Back
+                  </Link>
+                </Col>
+              </Row>
+            </div>
           </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </div>  
   );
 };
 

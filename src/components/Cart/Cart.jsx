@@ -31,7 +31,7 @@ const Cart = () => {
   };
 
   return (
-    <section className={`h-100 ${styles.hCustom}`} style={{ backgroundColor: '#d2c9ff' }}>
+    <section className={`h-100 ${styles.hCustom}`} >
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-12">
@@ -49,7 +49,7 @@ const Cart = () => {
                       {cart.length === 0 ? (
                         <div className="text-center">
                           <p>There are no items in the cart</p>
-                          <Link to="/" className="btn btn-primary">
+                          <Link to="/" className="btn btn-danger">
                           Return to the store
                           </Link>
                         </div>

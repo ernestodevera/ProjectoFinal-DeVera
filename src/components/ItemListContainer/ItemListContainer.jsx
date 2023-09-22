@@ -21,7 +21,7 @@ const ItemListContainer = () => {
     <div className="container">
       <div className="row">
         {isLoading ? (
-          <h2>Loading...</h2>
+          <h2 className="row justify-content-center">Loading...</h2>
         ) : (
           items.map((item) => (
             <div key={item.id} className="col-md-4">

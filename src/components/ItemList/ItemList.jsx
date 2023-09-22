@@ -3,7 +3,7 @@ import Card2 from "../Item/Item";
 
 const ItemList = ({ items, isLoading }) => {
   if (isLoading) {
-    return <h2 className="row align-items-stretch justify-content-center">Loading...</h2>; 
+    return <h2 className="justify-content-center">Loading...</h2>; 
   }
 
   return (
